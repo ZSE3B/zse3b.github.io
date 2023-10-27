@@ -3,9 +3,11 @@
 * {
     background-color: #2B2B2B;
     color: #E6E6E6;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
 }
 
-@media (max-width: 700px), (orientation: portrait) {
+@media (max-width: 1080px), (orientation: portrait) {
     .form{
         width: 60%;
         padding: 1.5rem;
@@ -19,5 +21,6 @@
         justify-content: center;
         align-self: center;
         border: 1px solid green;
+        width: 70%;
     }
 }
