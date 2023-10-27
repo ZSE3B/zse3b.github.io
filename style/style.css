@@ -11,7 +11,7 @@
     .form{
         width: 60%;
         padding: 1.5rem;
-        border: 1px solid pink;
+        border: 1px solid #578CBC;
         margin: auto;
     }
 
@@ -20,7 +20,7 @@
         margin: 0.8rem;
         justify-content: center;
         align-self: center;
-        border: 1px solid green;
+        border: 1px solid #578CBC;
         width: 70%;
     }
 }
