@@ -4,3 +4,20 @@
     background-color: #2B2B2B;
     color: #E6E6E6;
 }
+
+@media (max-width: 700px), (orientation: portrait) {
+    .form{
+        width: 60%;
+        padding: 1.5rem;
+        border: 1px solid pink;
+        margin: auto;
+    }
+
+    #description{
+        display: flex;
+        margin: 0.8rem;
+        justify-content: center;
+        align-self: center;
+        border: 1px solid green;
+    }
+}
