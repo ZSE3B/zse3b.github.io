@@ -1,9 +1,10 @@
 'use strict';
+import { geoApiOptions, PARAMS, GEO_API_URL} from './Locate';
 
 const weather = {
     init: () => {
         document.querySelector('#weather').addEventListener('change', weather.getLocation);
-        document.querySelector('#submit').addEventListener('click', weather.fetchWeather)
+        document.querySelector('#submit').addEventListener('click', weather.fetchWeather);
     },
     fetchWeather: (ev) => {
         let lat = document.querySelector('#lat').value;
@@ -15,18 +16,20 @@ const weather = {
 
         fetch(url)
         .then(resp => {
-            console.log('coś zrobiło');
             if (!resp.ok) throw new Error(resp.statusText);
             return resp.json();
         })
         .then(data => {
-            weather.showInfo(data);
+            weather.storeInfo(data);
         })
-        .catch(weather.fail)
+        .catch(weather.fail);
 
     },
-    showInfo: (data) => {
-        document.querySelector('#answer').value = JSON.stringify(data);
+    storeInfo: (data) => {
+        let info = JSON.stringify(data);
+        
+        let fs = require('fs');
+        fs.writeFile("wither.json", info, fail(err));
     },
     getLocation: (ev) => {
         if (!document.querySelector('#weather').checked) return;
@@ -38,13 +41,12 @@ const weather = {
         navigator.geolocation.getCurrentPosition(weather.succes, weather.fail, opt);
     },
     succes: (position) => {
-            console.log("coś pykło");
             document.querySelector('#lat').value = position.coords.latitude.toFixed(3);
             document.querySelector('#lon').value = position.coords.longitude.toFixed(3);
     },
     fail: (err) => {
-        console.error("no coś nie pykło");
-        console.error(err);
+        if(err)
+            console.log(`Błąd: ${err}`);
     },
 }
 
