@@ -1,19 +1,22 @@
 import './App.css';
+import TurkishWeatherBlock from './TurkishWeatherBlock';
 // import Weather from './api/Weather';
-import Search from './search';
+// import Search from './search';
 
 
 function App() {
 
-  const handleOnSearchChange = (searchData) => {
-    console.log("kajdkjlakldjaskljdakljsdjklasdjklakljdjksld");
-  }
+  //to do sposobu nr.2 ( Search )
+  // const handleOnSearchChange = (searchData) => {
+  //   console.log("kajdkjlakldjaskljdakljsdjklasdjklakljdjksld");
+  // }
   
 
   return (
     <div className="App">
         {/* <Weather /> */}
-        <Search onSearchChange={handleOnSearchChange}/>
+        {/* <Search onSearchChange={handleOnSearchChange}/> */}
+        <TurkishWeatherBlock />
     </div>
   );
 }
