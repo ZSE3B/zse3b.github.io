@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import {React} from 'react'
 import { useState } from 'react'
 import './TurkishWeatherBlock.css'
 
@@ -13,6 +13,7 @@ const TurkishWeatherBlock = () => {
     });
 
     const getLocation = () => {
+        if (data.name !== null) return;
         let opt = {
             enableHighAccuracy: true,
             timeout: 1000 * 10,
@@ -59,7 +60,7 @@ const TurkishWeatherBlock = () => {
                     imagePath = 'default';
                 }
                 
-                console.log(res.data);
+                //console.log(res.data);
                 setData({...data, 
                             celcius: res.data.main.temp, 
                             name: res.data.name, 
@@ -79,7 +80,8 @@ const TurkishWeatherBlock = () => {
     }
 
     return(
-        <div className="container" onLoad={getLocation}>
+        <div className="container" >
+            {getLocation()}
             <div className="weather">
                 <div className="search">
                     <input type="text" placeholder="Enter City Name" onChange={e => setName(e.target.value)}/>
@@ -89,12 +91,14 @@ const TurkishWeatherBlock = () => {
                 <div className="error">
                     <p>{error}</p>
                 </div>
-                <div className="winfo">
+                {data.name !== "" && data.celcius !== null && 
+
+                    <div className="winfo">
                     <p className="icon">{data.image}</p>
                     <h1>{Math.round(data.celcius)}°C</h1>
                     <h2>{data.name}</h2>
                     {/* JEŚLI BEDZIEMY POTRZEBOWAC TO ODKOMENTUJEMY :** */}
-                     {/* <div className="details">
+                    {/* <div className="details">
                             <div className="col">
                                 <p>imgHumidity</p>
                                 <div className='humidity'>
@@ -109,8 +113,10 @@ const TurkishWeatherBlock = () => {
                                     <p>Wind</p>
                                 </div>
                             </div>
-                     </div> */}
-                </div>
+                    </div> */}
+</div>
+                }
+                
             </div>
         </div>
 
