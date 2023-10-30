@@ -1,5 +1,4 @@
 'use strict';
-import { geoApiOptions, PARAMS, GEO_API_URL} from './Locate';
 
 const weather = {
     init: () => {

@@ -1,16 +1,34 @@
-import axios, { Axios } from 'axios'
+import axios from 'axios'
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './TurkishWeatherBlock.css'
 
 const TurkishWeatherBlock = () => {
     const [data, setData] = useState({
-        celcius: 69,
-        name: 'Opole',
+        celcius: null,
+        name: null,
         // humidity: 69,
         // speed: 2,
         image: ''
     });
+
+    const getLocation = () => {
+        let opt = {
+            enableHighAccuracy: true,
+            timeout: 1000 * 10,
+            maximumAge: 1000 * 60 * 5,
+        };
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude.toFixed(3);
+            let lon = position.coords.longitude.toFixed(3);
+
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=cfbfd66107b7ff8d44c71027d7aec642&&units=metric`;
+
+            handleWeather(apiUrl)
+        }, () => {
+            return;
+        }, opt);
+    }
 
     const [name, setName] = useState('');
     const [error, setError] = useState('');
@@ -18,19 +36,24 @@ const TurkishWeatherBlock = () => {
     const handleClick = () => {
         if(name !== ""){
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=cfbfd66107b7ff8d44c71027d7aec642&&units=metric`;
-            axios.get(apiUrl)
+            handleWeather(apiUrl)
+        }
+    }
+
+    const handleWeather = (apiUrl) => {
+        axios.get(apiUrl)
              .then(res => {
                 let imagePath = '';
                 // te obrazki to musze znaleźć narazie to takie tymczasowe u know
-                if(res.data.weather[0].main == "Clear") {
+                if(res.data.weather[0].main === "Clear") {
                     imagePath = "czysto";
-                } else if (res.data.weather[0].main == "Clouds") {
+                } else if (res.data.weather[0].main === "Clouds") {
                     imagePath = "chmury";
-                } else if (res.data.weather[0].main == "Drizzle") {
+                } else if (res.data.weather[0].main === "Drizzle") {
                     imagePath = "mżawa";
-                } else if (res.data.weather[0].main == "Rain") {
+                } else if (res.data.weather[0].main === "Rain") {
                     imagePath = "desczówa";
-                } else if (res.data.weather[0].main == "Mist") {
+                } else if (res.data.weather[0].main === "Mist") {
                     imagePath = "mgławica";
                 } else {
                     imagePath = 'default';
@@ -46,18 +69,17 @@ const TurkishWeatherBlock = () => {
                 setError("");
              })
              .catch(err => {
-                if (err.response.status == 404) {
+                if (err.response.status === 404) {
                     setError("Invalid name")
                 } else {
                     setError("");
                 }
                 console.log(err);
              });
-        }
     }
 
     return(
-        <div className="container">
+        <div className="container" onLoad={getLocation}>
             <div className="weather">
                 <div className="search">
                     <input type="text" placeholder="Enter City Name" onChange={e => setName(e.target.value)}/>
