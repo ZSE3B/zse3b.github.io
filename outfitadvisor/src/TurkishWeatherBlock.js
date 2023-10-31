@@ -1,6 +1,5 @@
 import axios from 'axios'
-import {React} from 'react'
-import { useState } from 'react'
+import {React, useState} from 'react'
 import './TurkishWeatherBlock.css'
 
 const TurkishWeatherBlock = () => {
@@ -37,7 +36,7 @@ const TurkishWeatherBlock = () => {
     const handleClick = () => {
         if(name !== ""){
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=cfbfd66107b7ff8d44c71027d7aec642&&units=metric`;
-            handleWeather(apiUrl)
+            handleWeather(apiUrl);
         }
     }
 
@@ -53,7 +52,7 @@ const TurkishWeatherBlock = () => {
                 } else if (res.data.weather[0].main === "Drizzle") {
                     imagePath = "mżawa";
                 } else if (res.data.weather[0].main === "Rain") {
-                    imagePath = "desczówa";
+                    imagePath = "deszczówa";
                 } else if (res.data.weather[0].main === "Mist") {
                     imagePath = "mgławica";
                 } else {
@@ -71,7 +70,7 @@ const TurkishWeatherBlock = () => {
              })
              .catch(err => {
                 if (err.response.status === 404) {
-                    setError("Invalid name")
+                    setError("Invalid name");
                 } else {
                     setError("");
                 }
