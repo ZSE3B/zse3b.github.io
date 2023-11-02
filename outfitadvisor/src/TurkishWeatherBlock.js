@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
-import {React, useState} from 'react'
+import React, { useState, useEffect } from 'react';
 import './TurkishWeatherBlock.css'
 
 const TurkishWeatherBlock = () => {
@@ -10,6 +11,9 @@ const TurkishWeatherBlock = () => {
         // speed: 2,
         image: ''
     });
+
+    const [name, setName] = useState('');
+    const [error, setError] = useState('');
 
     const getLocation = () => {
         if (data.name !== null) return;
@@ -29,9 +33,6 @@ const TurkishWeatherBlock = () => {
             return;
         }, opt);
     }
-
-    const [name, setName] = useState('');
-    const [error, setError] = useState('');
 
     const handleClick = () => {
         if(name !== ""){
@@ -78,20 +79,22 @@ const TurkishWeatherBlock = () => {
              });
     }
 
+    useEffect(() => {
+        getLocation();
+      }, []);
+
     return(
-        <div className="container" >
+        <div className="weather-container" >
             {getLocation()}
             <div className="weather">
                 <div className="search">
                     <input type="text" placeholder="Enter City Name" onChange={e => setName(e.target.value)}/>
-                    {/* zamiast "search" powinien być jakiś obrazek z lupką ale cieć głupi nie dał linka do swoich obrazków, wieczorkiem jak będę miał czas to może poszukam, bo zaraz to musze iść się uczyć na niemiecki :skull: */}
-                    <button onClick={handleClick}>search</button>
+                    <button onClick={handleClick}> <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i> </button>
                 </div>
                 <div className="error">
                     <p>{error}</p>
                 </div>
-                {data.name !== "" && data.celcius !== null && 
-
+                {data.name !== "" && data.celcius !== null && (
                     <div className="winfo">
                     <p className="icon">{data.image}</p>
                     <h1>{Math.round(data.celcius)}°C</h1>
@@ -113,12 +116,10 @@ const TurkishWeatherBlock = () => {
                                 </div>
                             </div>
                     </div> */}
-</div>
-                }
-                
+                </div>
+                )}
             </div>
         </div>
-
     );
 }
 
