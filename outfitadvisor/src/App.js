@@ -11,7 +11,6 @@ function App() {
 
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
-    console.log('jaha');
   };
 
   return (
