@@ -60,14 +60,15 @@ const TurkishWeatherBlock = () => {
         let imagePath = '';
         // te obrazki to musze znaleźć narazie to takie tymczasowe u know
         const weatherConditionToImage = {
-          Clear: 'Clear',
-          Clouds: 'Clouds',
-          Drizzle: 'Drizzle',
-          Rain: 'Rain',
-          Mist: 'Mist',
+          Clear: '/images/clear.png',
+          Clouds: '/images/clouds.png',
+          Drizzle: '/images/drizzle.png',
+          Rain: '/images/rain.png',
+          Mist: '/images/mist.png',
         };
+        
 
-        const defaultImagePath = 'default';
+        const defaultImagePath = '/images/clear.png';
         const weatherMain = res.data.weather[0].main;
         imagePath = weatherConditionToImage[weatherMain] || defaultImagePath;
 
@@ -114,7 +115,8 @@ const TurkishWeatherBlock = () => {
         </div>
         {data.name !== '' && data.celcius !== null && (
           <div className="winfo">
-            <p className="icon">{data.image}</p>
+            {/* <p className="icon">{data.image}</p> */}
+            <img className='icon' src={data.image} alt='obrazek pogody' />
             <h1>{Math.round(data.celcius)}°C</h1>
             <h2>{data.name}</h2>
             {/* JEŚLI BEDZIEMY POTRZEBOWAC TO ODKOMENTUJEMY :** */}
