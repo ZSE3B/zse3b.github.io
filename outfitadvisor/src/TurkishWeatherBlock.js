@@ -44,14 +44,14 @@ const TurkishWeatherBlock = () => {
     }
   };
 
-const handleClick = () => {
+  const handleClick = () => {
     if (name.trim() !== '') {
-        const fixedName = name.replace(/[^A-Za-z -]/g, '').replace(/^-+/g, '').replace(/-+/g, '-').replace(/\s+/g, ' ').trim();            
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${fixedName}&appid=cfbfd66107b7ff8d44c71027d7aec642&&units=metric`;
+      const fixedName = encodeURIComponent(name.trim());
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${fixedName}&appid=cfbfd66107b7ff8d44c71027d7aec642&&units=metric`;
 
-    handleWeather(apiUrl);
-  }
-};
+      handleWeather(apiUrl);
+    }
+  };
 
   const handleWeather = (apiUrl) => {
     axios
@@ -60,24 +60,22 @@ const handleClick = () => {
         let imagePath = '';
         // te obrazki to musze znaleźć narazie to takie tymczasowe u know
         const weatherConditionToImage = {
-            Clear: 'Clear',
-            Clouds: 'Clouds',
-            Drizzle: 'Drizzle',
-            Rain: 'Rain',
-            Mist: 'Mist',
-          };
-          
+          Clear: 'Clear',
+          Clouds: 'Clouds',
+          Drizzle: 'Drizzle',
+          Rain: 'Rain',
+          Mist: 'Mist',
+        };
+
         const defaultImagePath = 'default';
         const weatherMain = res.data.weather[0].main;
         imagePath = weatherConditionToImage[weatherMain] || defaultImagePath;
 
-        //console.log(res.data);
+        // console.log(res.data);
         setData({
           ...data,
           celcius: res.data.main.temp,
           name: res.data.name,
-          // humidity: res.data.main.humidity,
-          // speed: res.data.wind.speed,
           image: imagePath,
         });
         setError('');
@@ -123,14 +121,14 @@ const handleClick = () => {
             {/* <div className="details">
               <div className="col">
                 <p>imgHumidity</p>
-                <div className='humidity'>
+                <div className="humidity">
                   <p>{Math.round(data.humidity)}%</p>
                   <p>Humidity</p>
                 </div>
               </div>
               <div className="col">
                 <p>imgWind</p>
-                <div className='wind'>
+                <div className="wind">
                   <p>{Math.round(data.speed)} km/h</p>
                   <p>Wind</p>
                 </div>
