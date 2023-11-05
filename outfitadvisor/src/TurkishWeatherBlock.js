@@ -2,6 +2,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './TurkishWeatherBlock.scss';
+import clouds from "./images/clouds.png";
+import rain from "./images/rain.png";
+import clear from "./images/clear.png";
+import mist from "./images/mist.png";
+import drizzle from "./images/drizzle.png";
 
 const TurkishWeatherBlock = () => {
   const [data, setData] = useState({
@@ -57,18 +62,17 @@ const TurkishWeatherBlock = () => {
     axios
       .get(apiUrl)
       .then((res) => {
+        console.log(res.data);
         let imagePath = '';
-        // te obrazki to musze znaleźć narazie to takie tymczasowe u know
         const weatherConditionToImage = {
-          Clear: '/images/clear.png',
-          Clouds: '/images/clouds.png',
-          Drizzle: '/images/drizzle.png',
-          Rain: '/images/rain.png',
-          Mist: '/images/mist.png',
+          Clear: clear,
+          Clouds: clouds,
+          Drizzle: drizzle,
+          Rain: rain,
+          Mist: mist,
         };
-        
 
-        const defaultImagePath = '/images/clear.png';
+        const defaultImagePath = clear;
         const weatherMain = res.data.weather[0].main;
         imagePath = weatherConditionToImage[weatherMain] || defaultImagePath;
 
@@ -114,9 +118,8 @@ const TurkishWeatherBlock = () => {
           <p>{error}</p>
         </div>
         {data.name !== '' && data.celcius !== null && (
-          <div className="winfo">
-            {/* <p className="icon">{data.image}</p> */}
-            <img className='icon' src={data.image} alt='obrazek pogody' />
+          <div className="winfo">        
+            <img className='icon' src={data.image}/>
             <h1>{Math.round(data.celcius)}°C</h1>
             <h2>{data.name}</h2>
             {/* JEŚLI BEDZIEMY POTRZEBOWAC TO ODKOMENTUJEMY :** */}

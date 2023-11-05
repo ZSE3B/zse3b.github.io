@@ -14,8 +14,9 @@ $weather-block-bg-color: #deedf3;
   }
   
   .weather {
+    z-index: 9999;
     width: 23em;
-    height: 25em;
+    height: 28.2em;
     padding: 30px;
     border-radius: 24px;
     text-align: center;
@@ -62,7 +63,7 @@ $weather-block-bg-color: #deedf3;
     .winfo {
       .icon {
         margin-top: 20px;
-        width: 170px;
+        width: 120px;
       }
   
       h1 {
