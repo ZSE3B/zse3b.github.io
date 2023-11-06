@@ -31,13 +31,13 @@ function App() {
           </section>
 
         <section>
-          <p>Current weather</p>
+          {/* <ChatGpt /> */}
         </section>
         <section>
           <p>Need inspiration?<br />Look here</p>
         </section>
         <section>
-          <span><nobr>Your previous outfits</nobr></span>
+          <span>Your previous outfits<br/>&#40;coming soon&#41;</span>
           <section className="div-wrapper">
             <div></div>
             <div></div>
@@ -55,13 +55,13 @@ function App() {
             </li>
 
             <li className='navbar-list'>
-              <a href="#">
+              <a href="#" onClick={togglePopup}>
                 <span className='icon'> <i className="fa-solid fa-cloud"></i> </span>
               </a>
             </li>
 
             <li className='navbar-list'>
-              <a className="plus" href="#" onClick={togglePopup}>
+              <a className="plus" href="#">
                 <span className='icon'> <i className="fa-solid fa-plus"></i> </span>
                 <span className='text'> New </span>
               </a>
