@@ -41,18 +41,20 @@ $weather-block-bg-color: #deedf3;
 
     p{
         background-color: $error-text-color;
-        // color: $error-text-color;
         margin-top: 3em;
         padding: 0.7em;
         border-radius: .6em;
     }
 
     button{
-        padding: 0.8em;
+        padding: 0.6em 2em;
         border-radius: 10px;
         border: none;
         margin: 0 auto;
-        display: flex;
+    }
+
+    button:hover{
+        cursor: pointer;
     }
 
 }

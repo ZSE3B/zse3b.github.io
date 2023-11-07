@@ -7,6 +7,7 @@ import TurkishWeatherBlock from './TurkishWeatherBlock';
 import ChatGpt from './ChatGpt.js';
 import Login from './login';
 import AppInfo from './info.js';
+import Settings from './Settings.js';
 
 const App = () => {
   const [isPopupVisibleWeather, setPopupVisibleWeather] = useState(false);
@@ -34,6 +35,11 @@ const App = () => {
     setPopupVisibleLogin(!isPopupVisibleLogin);
   }
 
+  const togglePopupSettings = () => {
+    closeAllPopups();
+    setPopupVisibleSettings(!isPopupVisibleSettings);
+  }; 
+
   const closeAllPopups = () => {
     setPopupVisibleWeather(false);
     setPopupVisibleChat(false);
@@ -43,7 +49,7 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <div className={`container`}>
       <header>
         <section>
           <h1>OutfitAdvisor</h1>
@@ -77,15 +83,15 @@ const App = () => {
           </section>
 
           <section className={`pop-up ${isPopupVisibleSettings ? 'show' : ''}`}> 
-            <a href='#' className='close' onClick={togglePopupChat}><i class="fa-solid fa-xmark"></i></a>
-
+            <a href='#' className='close' onClick={togglePopupSettings}><i class="fa-solid fa-xmark"></i></a>
+            <Settings />
           </section>
 
         <section>
-          <p>Coming soon!</p>
+          <span>Coming soon!</span>
         </section>
         <section>
-          Need inspiration
+          <span>Need inspiration <br/> look here! <br/> &#40;coming soon&#41;</span>
         </section>
         <section>
           <span>Your previous outfits<br/>&#40;coming soon&#41;</span>
@@ -124,7 +130,7 @@ const App = () => {
               </a>
             </li>
             <li className='navbar-list'>
-              <a href="#">
+              <a href="#" onClick={togglePopupSettings}>
                 <span className='icon'> <i className="fa-solid fa-gear"></i> </span>
               </a>
             </li>

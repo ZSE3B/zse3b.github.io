@@ -32,6 +32,12 @@ body {
     width: 420px;
     height: 800px;
     border-radius: 24px;
+
+    &.dark-mode {
+        background-color: #000; // Dark mode background color
+        color: #fff; // Dark mode text color
+        transition: background-color 0.5s, color 0.5s;
+    }
 }
 
 header {
@@ -162,6 +168,10 @@ main {
         left: 14em;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
+    }
+
+    &.dark-mode {
+        background-color: #333
     }
 }
 

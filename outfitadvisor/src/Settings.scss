@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+$primary-text-color: #fff;
+$secondary-text-color: #282828;
+$error-text-color: #ff0000;
+$ligher-gradient-color:#007BFF;
+$darker-gradient-color: #5656eb;
+$weather-block-bg-color: #deedf3;
+
+.settings-container{
+    color: $primary-text-color;
+
+    h2 {
+        text-align: center;
+    }
+
+    #setters {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    p{
+        background-color: $error-text-color;
+        margin-top: 3em;
+        padding: 0.7em;
+        border-radius: .6em;
+        text-align: center;
+    }
+
+}
