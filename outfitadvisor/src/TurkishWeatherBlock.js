@@ -76,7 +76,6 @@ const TurkishWeatherBlock = () => {
         const weatherMain = res.data.weather[0].main;
         imagePath = weatherConditionToImage[weatherMain] || defaultImagePath;
 
-        // console.log(res.data);
         setData({
           ...data,
           celcius: res.data.main.temp,
@@ -122,23 +121,6 @@ const TurkishWeatherBlock = () => {
             <img className='icon' src={data.image}/>
             <h1>{Math.round(data.celcius)}°C</h1>
             <h2>{data.name}</h2>
-            {/* JEŚLI BEDZIEMY POTRZEBOWAC TO ODKOMENTUJEMY :** */}
-            {/* <div className="details">
-              <div className="col">
-                <p>imgHumidity</p>
-                <div className="humidity">
-                  <p>{Math.round(data.humidity)}%</p>
-                  <p>Humidity</p>
-                </div>
-              </div>
-              <div className="col">
-                <p>imgWind</p>
-                <div className="wind">
-                  <p>{Math.round(data.speed)} km/h</p>
-                  <p>Wind</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         )}
       </div>

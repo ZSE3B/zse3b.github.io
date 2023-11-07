@@ -11,6 +11,11 @@ $section-text-color: #282828;
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar{
+    display: none;
 }
 
 body {
@@ -22,7 +27,7 @@ body {
 
 .container {
     padding-inline: 1.5em;
-    margin-top: 5em;
+    // margin-top: 5em;
     background-color: $container-bg;
     width: 420px;
     height: 800px;
@@ -238,7 +243,7 @@ main {
             transform: translateY(-45px);
         }
 
-        &:focus .icon {
+        &:hover .icon {
             color: $primary-color;
         }
 
