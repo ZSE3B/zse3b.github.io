@@ -1,147 +1,70 @@
-# OutfitAdvisor
+# Getting Started with Create React App
 
-### `Ta aplikacja ma na celu pomóc tobie dobrać odpowiedni ubiór do aktualnie panującej pogody w Twoim regionie `
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Pliki
+## Available Scripts
 
-#### Aplikacja ta opiera się na następujących plikach:
+In the project directory, you can run:
 
-### `index.js`
-Jest to plik, w którym renderowany jest główny komponent `<App />`
+### `npm start`
 
-### `App.js`
-Tutaj dzieje się cała magia. Plik ten posiada obligatoryjne pliki zawierające poszczególne komponenty.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `ChatGpt.js`
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-W tym pliku zawarte jest łączenie z API OpenAI, do którego są przesyłane dane z formularza, takie jak: płeć, miejscowość oraz dodatkowe informacje dotyczące wymagań co do ubioru.
+### `npm test`
 
-### `info.js`
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Plik ten zawiera komponent odpowiadający za wyświetlenie informacji o tej aplikacji, czyli jej aktualną wersję oraz jej dokumentację.
+### `npm run build`
 
-### `TurkishWeatherBlock.js`
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Ten plik odpowiada za pobranie od użytkownika danych o pogodzie w jego lokalizacji (wyświetla o tym stosowny komunikat) lub pozwala na ręczne wpisanie danej miejscowości i wyświetla akutalnie panującą w niej pogodę.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### `Settings.js`
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-W tym komponencie istnieje możliwość zmiany motywu z jasnego na ciemny.
+### `npm run eject`
 
-### `Pliki SCSS`
-W tych plikach zawarte są style odpowiadające danemu komponentowi.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### `Co zainstalować, żeby aplikacja działała lokalnie?`
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Najpierw należy:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### - stworzyć folder (najlepiej na pulpicie) i nazwać go "`OutfitAdvisor`"
-### - zainstalować `Node.js` oraz `npm`
-### - wejść przez terminal w wcześniej stworzony folder, np. `cd Desktop\OutfitAdvisor` i wpisać:
-##### - `npm i npm`
-##### - `npm i react`
-##### - `npm i axios`
-##### - `npm i sass`
-##### - `npm i openai`
-### - po wykonaniu powyższych poleceń należałoby stworzyć aplikację react. W tym celu należy w terminalu wpisać "`npx create-react-app .`" (kropka oznacza, że aplikacja się stworzy w tym folderze, czyli OutfitAdvisor)
-### - następnie należy przekopiować pliki tejże aplikacji do folderu "OutfitAdvisor" i potwierdzić zamianę plików
-### - po wykonaniu powyższych kroków na koniec trzeba wpisać komendę "`npm start`", żeby włączyć serwer, na którym będzie działać ta aplikacja
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-# OutfitAdvisor
+## Learn More
 
-### `Ta aplikacja ma na celu pomóc tobie dobrać odpowiedni ubiór do aktualnie panującej pogody w Twoim regionie `
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-# Pliki
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-#### Aplikacja ta opiera się na następujących plikach:
+### Code Splitting
 
-### `index.js`
-Jest to plik, w którym renderowany jest główny komponent `<App />`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### `App.js`
-Tutaj dzieje się cała magia. Plik ten posiada obligatoryjne pliki zawierające poszczególne komponenty.
+### Analyzing the Bundle Size
 
-### `ChatGpt.js`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-W tym pliku zawarte jest łączenie z API OpenAI, do którego są przesyłane dane z formularza, takie jak: płeć, miejscowość oraz dodatkowe informacje dotyczące wymagań co do ubioru.
+### Making a Progressive Web App
 
-### `info.js`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Plik ten zawiera komponent odpowiadający za wyświetlenie informacji o tej aplikacji, czyli jej aktualną wersję oraz jej dokumentację.
+### Advanced Configuration
 
-### `TurkishWeatherBlock.js`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Ten plik odpowiada za pobranie od użytkownika danych o pogodzie w jego lokalizacji (wyświetla o tym stosowny komunikat) lub pozwala na ręczne wpisanie danej miejscowości i wyświetla akutalnie panującą w niej pogodę.
+### Deployment
 
-### `Settings.js`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-W tym komponencie istnieje możliwość zmiany motywu z jasnego na ciemny.
+### `npm run build` fails to minify
 
-### `Pliki SCSS`
-W tych plikach zawarte są style odpowiadające danemu komponentowi.
-
-### `Co zainstalować, żeby aplikacja działała lokalnie?`
-
-## Najpierw należy:
-
-### - stworzyć folder (najlepiej na pulpicie) i nazwać go "`OutfitAdvisor`"
-### - zainstalować `Node.js` oraz `npm`
-### - wejść przez terminal w wcześniej stworzony folder, np. `cd Desktop\OutfitAdvisor` i wpisać:
-##### - `npm i npm`
-##### - `npm i react`
-##### - `npm i axios`
-##### - `npm i sass`
-##### - `npm i openai`
-### - po wykonaniu powyższych poleceń należałoby stworzyć aplikację react. W tym celu należy w terminalu wpisać "`npx create-react-app .`" (kropka oznacza, że aplikacja się stworzy w tym folderze, czyli OutfitAdvisor)
-### - następnie należy przekopiować pliki tejże aplikacji do folderu "OutfitAdvisor" i potwierdzić zamianę plików
-### - po wykonaniu powyższych kroków na koniec trzeba wpisać komendę "`npm start`", żeby włączyć serwer, na którym będzie działać ta aplikacja
-
-# OutfitAdvisor
-
-### `Ta aplikacja ma na celu pomóc tobie dobrać odpowiedni ubiór do aktualnie panującej pogody w Twoim regionie `
-
-# Pliki
-
-#### Aplikacja ta opiera się na następujących plikach:
-
-### `index.js`
-Jest to plik, w którym renderowany jest główny komponent `<App />`
-
-### `App.js`
-Tutaj dzieje się cała magia. Plik ten posiada obligatoryjne pliki zawierające poszczególne komponenty.
-
-### `ChatGpt.js`
-
-W tym pliku zawarte jest łączenie z API OpenAI, do którego są przesyłane dane z formularza, takie jak: płeć, miejscowość oraz dodatkowe informacje dotyczące wymagań co do ubioru.
-
-### `info.js`
-
-Plik ten zawiera komponent odpowiadający za wyświetlenie informacji o tej aplikacji, czyli jej aktualną wersję oraz jej dokumentację.
-
-### `TurkishWeatherBlock.js`
-
-Ten plik odpowiada za pobranie od użytkownika danych o pogodzie w jego lokalizacji (wyświetla o tym stosowny komunikat) lub pozwala na ręczne wpisanie danej miejscowości i wyświetla akutalnie panującą w niej pogodę.
-
-### `Settings.js`
-
-W tym komponencie istnieje możliwość zmiany motywu z jasnego na ciemny.
-
-### `Pliki SCSS`
-W tych plikach zawarte są style odpowiadające danemu komponentowi.
-
-### `Co zainstalować, żeby aplikacja działała lokalnie?`
-
-## Najpierw należy:
-
-### - stworzyć folder (najlepiej na pulpicie) i nazwać go "`OutfitAdvisor`"
-### - zainstalować `Node.js` oraz `npm`
-### - wejść przez terminal w wcześniej stworzony folder, np. `cd Desktop\OutfitAdvisor` i wpisać:
-##### - `npm i npm`
-##### - `npm i react`
-##### - `npm i axios`
-##### - `npm i sass`
-##### - `npm i openai`
-### - po wykonaniu powyższych poleceń należałoby stworzyć aplikację react. W tym celu należy w terminalu wpisać "`npx create-react-app .`" (kropka oznacza, że aplikacja się stworzy w tym folderze, czyli OutfitAdvisor)
-### - następnie należy przekopiować pliki tejże aplikacji do folderu "OutfitAdvisor" i potwierdzić zamianę plików
-### - po wykonaniu powyższych kroków na koniec trzeba wpisać komendę "`npm start`", żeby włączyć serwer, na którym będzie działać ta aplikacja
-
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
