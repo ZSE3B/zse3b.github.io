@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+$primary-text-color: #fff;
+$ligher-gradient-color:#007BFF;
+$darker-gradient-color: #5656eb;
+$block-bg-color: #deedf3;
+
+.info-container{
+    padding: 1.5em;
+    color: $primary-text-color;
+
+    .more-details{
+        margin-top: 2em;
+    }
+
+    h2{
+        font-size: 34pt;
+    }
+
+    .infos{
+        margin-top: 0.6em;
+        font-size: 17pt;
+        font-weight: 600;
+    }
+
+    .details{
+        font-size: 22pt;
+        margin-right: 0.5em;
+    }
+
+    a{
+        text-decoration: none;
+        color: $primary-text-color;
+        font-style: italic;
+    }
+
+    p:last-child{
+        margin-top: 3em;
+        text-align: center;
+    }
+}

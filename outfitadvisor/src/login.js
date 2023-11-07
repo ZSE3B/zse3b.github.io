@@ -1,4 +1,7 @@
-const login = () => {
+import {React} from 'react';
+import './login.scss'
+
+const Login = () => {
 
     return(
         <div>
@@ -7,4 +10,4 @@ const login = () => {
     )
 }
 
-export default login;
+export default Login;

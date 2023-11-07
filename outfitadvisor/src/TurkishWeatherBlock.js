@@ -12,8 +12,6 @@ const TurkishWeatherBlock = () => {
   const [data, setData] = useState({
     celcius: null,
     name: null,
-    // humidity: 69,
-    // speed: 2,
     image: '',
   });
 
@@ -119,7 +117,7 @@ const TurkishWeatherBlock = () => {
         {data.name !== '' && data.celcius !== null && (
           <div className="winfo">        
             <img className='icon' src={data.image}/>
-            <h1>{Math.round(data.celcius)}°C</h1>
+            <h1>{Math.round(data.celcius)}°C</h1> <br/>
             <h2>{data.name}</h2>
           </div>
         )}

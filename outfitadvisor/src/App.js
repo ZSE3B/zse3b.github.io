@@ -4,14 +4,21 @@
 import React, { useState } from 'react';
 import './App.scss';
 import TurkishWeatherBlock from './TurkishWeatherBlock';
-import ChatGpt from './ChatGpt';
-import login from './login';
+import ChatGpt from './ChatGpt.js';
+import Login from './login';
+import AppInfo from './info.js';
 
-function App() {
+const App = () => {
   const [isPopupVisibleWeather, setPopupVisibleWeather] = useState(false);
   const [isPopupVisibleChat, setPopupVisibleChat] = useState(false);
   const [isPopupVisibleLogin, setPopupVisibleLogin] = useState(false);
+  const [isPopupVisibleSettings, setPopupVisibleSettings] = useState(false);
+  const [isPopupVisibleInfo, setPopupVisibleInfo] = useState(false);
 
+  const togglePopupInfo = () => {
+    closeAllPopups();
+    setPopupVisibleInfo(!isPopupVisibleInfo);
+  };
   const togglePopupWeather = () => {
     closeAllPopups();
     setPopupVisibleWeather(!isPopupVisibleWeather);
@@ -31,6 +38,8 @@ function App() {
     setPopupVisibleWeather(false);
     setPopupVisibleChat(false);
     setPopupVisibleLogin(false);
+    setPopupVisibleInfo(false);
+    setPopupVisibleSettings(false);
   }
 
   return (
@@ -41,10 +50,17 @@ function App() {
           <h3>Hello, username!</h3>
         </section>
         <section>
-          <span>?</span>
+        <a href='#' onClick={togglePopupInfo}>
+            <span>?</span>
+        </a>
         </section>
       </header>
       <main>
+      <section className={`pop-up ${isPopupVisibleInfo ? 'show' : ''}`}>
+            <a href="#" className='close' onClick={togglePopupInfo}> <i class="fa-solid fa-xmark"></i></a>
+            <AppInfo />
+      </section>
+
           <section className={`pop-up ${isPopupVisibleWeather ? 'show' : ''}`}>
             <a href="#" className='close' onClick={togglePopupWeather}> <i class="fa-solid fa-xmark"></i></a>
             <TurkishWeatherBlock />
@@ -57,7 +73,12 @@ function App() {
 
           <section className={`pop-up ${isPopupVisibleLogin ? 'show' : ''}`}> 
             <a href='#' className='close' onClick={togglePopupLogin}><i class="fa-solid fa-xmark"></i></a>
-            <login />
+            <Login />
+          </section>
+
+          <section className={`pop-up ${isPopupVisibleSettings ? 'show' : ''}`}> 
+            <a href='#' className='close' onClick={togglePopupChat}><i class="fa-solid fa-xmark"></i></a>
+
           </section>
 
         <section>
